@@ -36,9 +36,6 @@ public class TestCases {
 
     @Test
     public void test2(){
-        //1. location get
-        //2. establish get
-        //3. search
-
+// I added New Testcase now
     }
 }
