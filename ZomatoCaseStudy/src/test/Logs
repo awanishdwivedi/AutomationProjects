@@ -1,0 +1,27 @@
+
+
+
+DEBUG [main] (CompositeLog.java:147) - HTTP GET https://developers.zomato.com/api/v2.1/search?entity_type=city&entity_id=28
+DEBUG [main] (CompositeLog.java:147) - Accept=[application/json, text/html]
+ INFO [main] (RequestResponseLoggingInterceptor.java:36) - ===========================request begin================================================
+ INFO [main] (RequestResponseLoggingInterceptor.java:37) - URI         : https://developers.zomato.com/api/v2.1/search?entity_type=city&entity_id=28
+ INFO [main] (RequestResponseLoggingInterceptor.java:38) - Method      : GET
+ INFO [main] (RequestResponseLoggingInterceptor.java:39) - Headers     : [Accept:"application/json, text/html", user-key:"1849af211c168e59a6276e6d2ab645e4", Content-Length:"0"]
+ INFO [main] (RequestResponseLoggingInterceptor.java:40) - Request body: 
+ INFO [main] (RequestResponseLoggingInterceptor.java:41) - ==========================request end================================================
+DEBUG [main] (RequestResponseLoggingInterceptor.java:48) - ============================response begin==========================================
+DEBUG [main] (RequestResponseLoggingInterceptor.java:49) - Status code  : 200 OK
+DEBUG [main] (RequestResponseLoggingInterceptor.java:50) - Status text  : OK
+DEBUG [main] (RequestResponseLoggingInterceptor.java:51) - Headers      : [Content-Type:"application/json", Server:"envoy", x-xss-protection:"1; mode=block; report=https://www.zomato.com/cspreport.php", Content-Security-Policy:"frame-ancestors 'self' https://microapps.google.com/ https://pwa.zomato.com; default-src *; font-src * data:; child-src 'self' * blob:; img-src * data:; media-src * blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' browser.sentry-cdn.com *.jwpcdn.com *.cloudflare.com *.twitter.com *.recruiterbox.com *.zdev.net *.zdev.net:8080 *.zomato.com *.tinymce.com *.gstatic.com *.googleapis.com *.google.com *.google.co.in *.facebook.com sdk.accountkit.com *.doubleclick.net *.googletagservices.com *.googlesyndication.com *.nr-data.net *.newrelic.com *.google-analytics.com *.zmtcdn.com *.googletagmanager.com *.facebook.net *.googleadservices.com *.cdninstagram.com *.googlesyndication.com *.spreedly.com *.instagram.com *.twimg.com d1m0gkspj3l6or.cloudfront.net d3mvnvhjmkxpjz.cloudfront.net d36mpcpuzc4ztk.cloudfront.net d2weczhvl823v0.cloudfront.net d2z9qv80fklwtv.cloudfront.net d32l4mqe5xk032.cloudfront.net *.serving-sys.com *.pubnub.com *.branch.io app.link cdn.poll-maker.com *.ampproject.org rec.smartlook.com static.hotjar.com script.hotjar.com zba.se *.googletagmanager.com eff.org cdn.plot.ly 3717.tm.zedo.com *.bing.com static.criteo.net sslwidget.criteo.com gum.criteo.com mddigital.in static.zdassets.com zomato.zendesk.com cdn.taboola.com trc.taboola.com ds-aksb-a.akamaihd.net service.force.com zomato.my.salesforce.com zomato.secure.force.com d.la1-c1-hnd.salesforceliveagent.com; style-src * 'unsafe-inline'; worker-src 'self' https: blob:;", x-content-type-options:"nosniff", Access-Control-Allow-Origin:"*", Access-Control-Allow-Methods:"GET, POST, DELETE, PUT, PATCH, OPTIONS", Access-Control-Allow-Headers:"X-Zomato-API-Key", Access-Control-Allow-Credentials:"true", x-envoy-upstream-service-time:"935", Date:"Sun, 26 Jul 2020 11:12:09 GMT", Transfer-Encoding:"chunked", Connection:"keep-alive", "Transfer-Encoding", Set-Cookie:"AWSALBTG=ke/UrmfDOWOR256/0A4GToRRDBe/yB/nfBlHXf85SjZJ0nNV0uuN/Eusn9RmRLI/xfu3O3LBY/tAZ9//knzeav2mm1H0jdVtEbiHu+Dx5SJdfdbr8+bKx8qXtWPG3TWk7/9O6ZA8I1EfZqTi489KMQO0uVWEi+xWeWmmLGHPsTAGITx44Ws=; Expires=Sun, 02 Aug 2020 11:12:08 GMT; Path=/", "AWSALBTGCORS=ke/UrmfDOWOR256/0A4GToRRDBe/yB/nfBlHXf85SjZJ0nNV0uuN/Eusn9RmRLI/xfu3O3LBY/tAZ9//knzeav2mm1H0jdVtEbiHu+Dx5SJdfdbr8+bKx8qXtWPG3TWk7/9O6ZA8I1EfZqTi489KMQO0uVWEi+xWeWmmLGHPsTAGITx44Ws=; Expires=Sun, 02 Aug 2020 11:12:08 GMT; Path=/; SameSite=None; Secure", "csrf=fe9d4e51ec219012c70e9a5f843fab62; expires=Sun, 26-Jul-2020 11:36:08 GMT; Max-Age=1440; path=/; domain=.zomato.com", "fbcity=1; expires=Fri, 22-Jan-2021 11:12:08 GMT; Max-Age=15552000; path=/; domain=.zomato.com; secure", "zl=en; expires=Fri, 22-Jan-2021 11:12:08 GMT; Max-Age=15552000; path=/; domain=.zomato.com; secure", "fbtrack=b531f49c0d22b612858684b52f510247; expires=Wed, 21-Jul-2021 11:12:08 GMT; Max-Age=31104000; path=/; domain=.zomato.com; secure", Cache-Control:"max-age=0, no-cache, no-store, no-transform", Strict-Transport-Security:"max-age=31536000"]
+DEBUG [main] (RequestResponseLoggingInterceptor.java:53) - =======================response end=================================================
+DEBUG [main] (CompositeLog.java:147) - Response 200 OK
+DEBUG [main] (CompositeLog.java:147) - Reading to [response.RestaurantResponse]
+ INFO [main] (Rest.java:78) - response : 200 OK
+20
+
+
+===============================================
+Default Suite
+Total tests run: 1, Passes: 1, Failures: 0, Skips: 0
+===============================================
+
