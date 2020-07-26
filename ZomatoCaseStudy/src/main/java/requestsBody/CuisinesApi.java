@@ -7,7 +7,6 @@ package requestsBody;
 import exception.ApiException;
 import org.testng.annotations.Test;
 import response.CuisinesResponse;
-import response.EstablishmentResponse;
 import rest.Rest;
 
 import java.util.HashMap;
@@ -20,15 +19,13 @@ import java.util.Map;
 public class CuisinesApi {
 
     @Test
-    public void getCuisine(String cityId,Double lat,Double lon) throws ApiException {
+    public CuisinesResponse getCuisine(Integer cityId, Double lat, Double lon) throws ApiException {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("city_id",cityId);
         map.put("lat",lat);
         map.put("lon",lon);
 
 
-        CuisinesResponse cuisinesResponse = Rest.get(map, CuisinesResponse.class,"cuisines");
-        System.out.println(cuisinesResponse.getCuisines().get(0).getCuisine().getCuisine_id());
-        System.out.println(cuisinesResponse.getCuisines().get(0).getCuisine().getCuisine_name());
+        return Rest.get(map, CuisinesResponse.class,"cuisines");
     }
 }

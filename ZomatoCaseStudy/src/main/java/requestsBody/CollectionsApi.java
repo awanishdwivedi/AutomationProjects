@@ -22,7 +22,7 @@ import java.util.Map;
  */
 public class CollectionsApi {
 
-    public CollectionResponse getCollection(String cityId,Double lat, Double lon, Integer count) throws ApiException {
+    public CollectionResponse getCollection(Integer cityId,Double lat, Double lon, Integer count) throws ApiException {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("city_id",cityId);
         map.put("lat",26.8467);

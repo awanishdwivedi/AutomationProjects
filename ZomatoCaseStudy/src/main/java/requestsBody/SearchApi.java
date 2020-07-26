@@ -31,17 +31,18 @@ public class SearchApi {
 
     }
 
-    public RestaurantResponse searchByCollection(String entityType, String entityId, String collectionId) throws ApiException {
+    public RestaurantResponse searchByCollection(String entityType, Integer entityId, Integer collectionId,Integer count) throws ApiException {
         Map<String,Object> map = new HashMap<String, Object>();
 
         map.put("entity_type",entityType);//city
         map.put("entity_id",entityId);//28
         map.put("collection_id",collectionId);//1
+        map.put("collection_id",count);//1
 
         return Rest.get(map,RestaurantResponse.class,"search");
     }
 
-    public RestaurantResponse searchByCuisines(String entityType, String entityId,String cuisines) throws ApiException {
+    public RestaurantResponse searchByCuisines(String entityType, Integer entityId,String cuisines) throws ApiException {
         Map<String,Object> map = new HashMap<String, Object>();
 
         map.put("entity_type",entityType);//city

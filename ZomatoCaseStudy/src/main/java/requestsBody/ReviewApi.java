@@ -26,11 +26,6 @@ public class ReviewApi {
         map.put("count",count); //10
 
        return   Rest.get(map, response.ReviewResponse.class,"reviews");
-       /*
-        System.out.println(reviewResponse.getReviews_count());
-        System.out.println(reviewResponse.getUser_reviews().size());
-        System.out.println(reviewResponse.getUser_reviews().get(0).getReview().getUser().getName());
-*/
     }
 
 }
