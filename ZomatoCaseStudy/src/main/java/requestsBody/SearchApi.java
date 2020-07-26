@@ -52,7 +52,7 @@ public class SearchApi {
         return Rest.get(map,RestaurantResponse.class,"search");
     }
 
-    public RestaurantResponse searchByEstablishment(String entityType, String entityId,String stablishmentType,Long lat, Long lon) throws ApiException {
+    public RestaurantResponse searchByEstablishment(String entityType, Integer entityId,String stablishmentType,Double lat, Double lon) throws ApiException {
         Map<String,Object> map = new HashMap<String, Object>();
 
         map.put("entity_type",entityType);//city

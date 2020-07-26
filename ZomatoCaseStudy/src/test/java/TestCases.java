@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pojos.Collection;
 import pojos.CollectionRes;
+import pojos.EstablishmentRes;
 import pojos.RestaurantRes;
 import requestsBody.CollectionsApi;
 import requestsBody.CuisinesApi;
@@ -18,6 +19,7 @@ import requestsBody.ReviewApi;
 import requestsBody.SearchApi;
 import response.CollectionResponse;
 import response.CuisinesResponse;
+import response.EstablishmentResponse;
 import response.LocationResponse;
 import response.RestaurantResponse;
 import response.ReviewResponse;
@@ -118,5 +120,19 @@ public class TestCases {
     /**
      * Testcase 004 :
      */
+    @Test
+    public void test4() throws ApiException {
+        LocationResponse locationResponse = locationsApi.getLocation("Lucknow", 26.8467, 26.8467, 10);
+        int cityId = locationResponse.getLocation_suggestions().get(0).getCity_id();
 
-}
+        EstablishmentResponse establishmentResponse =  establismentsApi.getEstablishment(cityId,26.8467, 26.8467);
+        int id = establishmentResponse.getEstablishments().get(0).getEstablishment().getId();
+        String name = establishmentResponse.getEstablishments().get(0).getEstablishment().getName();
+
+        RestaurantResponse restaurantResponse = searchApi.searchByEstablishment("city",cityId,String.valueOf(id),26.8467, 26.8467);
+        for (RestaurantRes rest: restaurantResponse.getRestaurants()) {
+            Assert.assertEquals(name,rest.getRestaurant().getEstablishment());
+        }
+    }
+
+    }

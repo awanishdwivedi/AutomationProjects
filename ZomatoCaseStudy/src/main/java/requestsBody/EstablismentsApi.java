@@ -19,7 +19,7 @@ import java.util.Map;
 public class EstablismentsApi {
 
     @Test
-    public EstablishmentResponse getEstablishment(String cityId, Double lat, Double lon) throws ApiException {
+    public EstablishmentResponse getEstablishment(Integer cityId, Double lat, Double lon) throws ApiException {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("city_id",cityId);//8
         map.put("lat",lat);//26.8467

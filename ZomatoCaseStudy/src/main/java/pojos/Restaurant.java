@@ -30,8 +30,31 @@ public class Restaurant {
     private Location location;
     private UserRatings userRatings;
     private List<String> highlights;
+    private List<String> establishment;
 
+    public UserRatings getUserRatings() {
+        return userRatings;
+    }
 
+    public void setUserRatings(UserRatings userRatings) {
+        this.userRatings = userRatings;
+    }
+
+    public List<String> getHighlights() {
+        return highlights;
+    }
+
+    public void setHighlights(List<String> highlights) {
+        this.highlights = highlights;
+    }
+
+    public List<String> getEstablishment() {
+        return establishment;
+    }
+
+    public void setEstablishment(List<String> establishment) {
+        this.establishment = establishment;
+    }
 
     public String getApikey() {
         return apikey;
