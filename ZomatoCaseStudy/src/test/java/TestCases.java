@@ -4,12 +4,8 @@
  */
 
 import exception.ApiException;
-import io.restassured.internal.common.assertion.AssertionSupport;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pojos.Collection;
-import pojos.CollectionRes;
-import pojos.EstablishmentRes;
 import pojos.RestaurantRes;
 import requestsBody.CollectionsApi;
 import requestsBody.CuisinesApi;
@@ -22,7 +18,6 @@ import response.CuisinesResponse;
 import response.EstablishmentResponse;
 import response.LocationResponse;
 import response.RestaurantResponse;
-import response.ReviewResponse;
 
 /**
  * @author Awanish Dwivedi
@@ -118,7 +113,7 @@ public class TestCases {
      */
 
     /**
-     * Testcase 004 :
+     * Testcase 004 : check if all restaurant in response contains same establishment or not
      */
     @Test
     public void test4() throws ApiException {
@@ -129,10 +124,71 @@ public class TestCases {
         int id = establishmentResponse.getEstablishments().get(0).getEstablishment().getId();
         String name = establishmentResponse.getEstablishments().get(0).getEstablishment().getName();
 
-        RestaurantResponse restaurantResponse = searchApi.searchByEstablishment("city",cityId,String.valueOf(id),26.8467, 26.8467);
+        RestaurantResponse restaurantResponse = searchApi.searchByEstablishment("city",cityId,String.valueOf(id),26.8467, 26.8467,null,null);
         for (RestaurantRes rest: restaurantResponse.getRestaurants()) {
-            Assert.assertEquals(name,rest.getRestaurant().getEstablishment());
+            System.out.println("Name : "+name);
+            System.out.println(rest.getRestaurant().getEstablishment());
+            Assert.assertTrue(rest.getRestaurant().getEstablishment().contains(name));
+//            Assert.assertEquals(name,rest.getRestaurant().getEstablishment().get(0));
         }
     }
 
+    /**
+     * Testcase 005 : EstablishmentId passed and sort in order of rating
+     */
+    @Test
+    public void test5() throws ApiException {
+        LocationResponse locationResponse = locationsApi.getLocation("Lucknow", 26.8467, 26.8467, 10);
+        int cityId = locationResponse.getLocation_suggestions().get(0).getCity_id();
+
+        EstablishmentResponse establishmentResponse =  establismentsApi.getEstablishment(cityId,26.8467, 26.8467);
+        int id = establishmentResponse.getEstablishments().get(0).getEstablishment().getId();
+        String name = establishmentResponse.getEstablishments().get(0).getEstablishment().getName();
+
+        RestaurantResponse restaurantSorted = searchApi.searchByEstablishment("city",cityId,String.valueOf(id),26.8467, 26.8467,"rating","desc");
+        int  size = restaurantSorted.getRestaurants().size();
+        for (int i=0;i<size-1;i++)
+        {
+            System.out.println(" First : "+restaurantSorted.getRestaurants().get(i).getRestaurant().getUser_rating().getAggregate_rating() +" Next : "+restaurantSorted.getRestaurants().get(i+1).getRestaurant().getUser_rating().getAggregate_rating());
+                Assert.assertTrue(restaurantSorted.getRestaurants().get(i).getRestaurant().getUser_rating().getAggregate_rating()>= restaurantSorted.getRestaurants().get(i+1).getRestaurant().getUser_rating().getAggregate_rating());
+        }
+
     }
+    /**
+     * Testcase 006 : EstablishmentId passed and sort in order of cost
+     */
+    @Test
+    public void test6() throws ApiException {
+        LocationResponse locationResponse = locationsApi.getLocation("Lucknow", 26.8467, 26.8467, 10);
+        int cityId = locationResponse.getLocation_suggestions().get(0).getCity_id();
+
+        EstablishmentResponse establishmentResponse =  establismentsApi.getEstablishment(cityId,26.8467, 26.8467);
+        int id = establishmentResponse.getEstablishments().get(0).getEstablishment().getId();
+        String name = establishmentResponse.getEstablishments().get(0).getEstablishment().getName();
+
+        RestaurantResponse restaurantSorted = searchApi.searchByEstablishment("city",cityId,String.valueOf(id),26.8467, 26.8467,"cost","desc");
+        int  size = restaurantSorted.getRestaurants().size();
+        for (int i=0;i<size-1;i++)
+        {
+            System.out.println(" First : "+restaurantSorted.getRestaurants().get(i).getRestaurant().getAverage_cost_for_two() +" Next : "+restaurantSorted.getRestaurants().get(i+1).getRestaurant().getAverage_cost_for_two());
+            Assert.assertTrue(restaurantSorted.getRestaurants().get(i).getRestaurant().getAverage_cost_for_two()>= restaurantSorted.getRestaurants().get(i+1).getRestaurant().getAverage_cost_for_two());
+        }
+
+    }
+
+    /**
+     * Testcase 006 : Search is working without any filters
+     */
+    @Test
+    public void test7() throws ApiException {
+
+            RestaurantResponse restaurantResponse = searchApi.search();
+            restaurantResponse.getResults_found();
+            if (restaurantResponse.getResults_found()>1)
+            {Assert.assertTrue(true);}
+            else
+            {        Assert.assertTrue(false);}
+    }
+
+
+}

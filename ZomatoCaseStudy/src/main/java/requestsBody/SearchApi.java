@@ -21,6 +21,12 @@ import static io.restassured.RestAssured.given;
  */
 public class SearchApi {
 
+    public RestaurantResponse search() throws ApiException {
+        Map<String,Object> map = new HashMap<String, Object>();
+
+        return Rest.get(map,RestaurantResponse.class,"search");
+
+    }
     public RestaurantResponse searchByEntity(String entityType, String entityId) throws ApiException {
         Map<String,Object> map = new HashMap<String, Object>();
 
@@ -52,14 +58,17 @@ public class SearchApi {
         return Rest.get(map,RestaurantResponse.class,"search");
     }
 
-    public RestaurantResponse searchByEstablishment(String entityType, Integer entityId,String stablishmentType,Double lat, Double lon) throws ApiException {
+    public RestaurantResponse searchByEstablishment(String entityType, Integer entityId,String establishmentType,Double lat, Double lon,String sort,String order) throws ApiException {
         Map<String,Object> map = new HashMap<String, Object>();
 
         map.put("entity_type",entityType);//city
         map.put("entity_id",entityId);//28
-        map.put("establishment_type","20");
+        map.put("establishment_type",establishmentType);
         map.put("lat",lat);
         map.put("lon",lon);
+        map.put("sort",sort);
+        map.put("order",order);
+
 
         return Rest.get(map,RestaurantResponse.class,"search");
     }

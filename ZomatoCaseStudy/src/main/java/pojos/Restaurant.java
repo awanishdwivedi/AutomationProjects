@@ -28,16 +28,16 @@ public class Restaurant {
     private Boolean has_online_delivery;
     private String phone_numbers;
     private Location location;
-    private UserRatings userRatings;
+    private UserRatings user_rating;
     private List<String> highlights;
     private List<String> establishment;
 
-    public UserRatings getUserRatings() {
-        return userRatings;
+    public UserRatings getUser_rating() {
+        return user_rating;
     }
 
-    public void setUserRatings(UserRatings userRatings) {
-        this.userRatings = userRatings;
+    public void setUser_rating(UserRatings user_rating) {
+        this.user_rating = user_rating;
     }
 
     public List<String> getHighlights() {
@@ -203,7 +203,7 @@ public class Restaurant {
                 ", has_online_delivery=" + has_online_delivery +
                 ", phone_numbers='" + phone_numbers + '\'' +
                 ", locations=" + location +
-                ", userRatings=" + userRatings +
+                ", user_rating=" + user_rating +
                 ", highlights=" + highlights +
                 '}';
     }
